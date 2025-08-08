@@ -912,7 +912,7 @@
       </p>
       
       <!-- Interactive Pricing Calculator -->
-      <div class="max-w-2xl mx-auto mb-12" data-controller="pricing">
+      <div class="max-w-2xl mx-auto mb-12">
         <h3 class="text-xl font-bold text-center text-gray-900 mb-6">Calculate Your Pricing</h3>
         
         <!-- Two Cards Side by Side -->
@@ -924,8 +924,7 @@
                    id="seats" 
                    min="1" 
                    placeholder="Enter facility size"
-                   class="w-full max-w-xs mx-auto block text-center text-lg px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                   data-action="input->pricing#updatePrice">
+                   class="w-full max-w-xs mx-auto block text-center text-lg px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
             <p class="mt-2 text-sm text-gray-500 text-center">Enter your total facility capacity</p>
           </div>
           
@@ -1400,6 +1399,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Pricing Calculator
+function initPricingCalculator() {
+    const seatsInput = document.querySelector('#seats');
+    const amountElement = document.querySelector('[data-pricing-target="amount"]');
+    const displayElement = document.querySelector('[data-pricing-target="display"]');
+    
+    if (!seatsInput || !amountElement) return;
+    
+    function calculatePrice(seats) {
+        // Calculate which 20-seat tier (1-based)
+        const tier = Math.floor((seats - 1) / 20) + 1;
+        
+        if (tier === 1) {
+            // 1-20 seats
+            return 200;
+        } else if (tier === 2) {
+            // 21-40 seats
+            return 300;
+        } else {
+            // 41+ seats: $300 + ($200 * additional tiers beyond tier 2)
+            return 300 + ((tier - 2) * 200);
+        }
+    }
+    
+    function updatePrice() {
+        const seats = parseInt(seatsInput.value) || 0;
+        
+        if (seats === 0) {
+            amountElement.textContent = "Enter seat count above";
+            return;
+        }
+        
+        // Calculate price using the same formula as the backend
+        const price = calculatePrice(seats);
+        amountElement.textContent = `$${price}/month`;
+        
+        // Update the display box styling
+        if (displayElement) {
+            displayElement.classList.remove("bg-blue-50", "border-blue-200");
+            displayElement.classList.add("bg-green-50", "border-green-200");
+            
+            // Update text colors
+            const heading = displayElement.querySelector("h3");
+            const priceElement = displayElement.querySelector("p");
+            if (heading) {
+                heading.classList.remove("text-blue-900");
+                heading.classList.add("text-green-900");
+            }
+            if (priceElement) {
+                priceElement.classList.remove("text-blue-900");
+                priceElement.classList.add("text-green-900");
+            }
+        }
+    }
+    
+    // Add event listener
+    seatsInput.addEventListener('input', updatePrice);
+}
+
+// Initialize pricing calculator when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPricingCalculator);
+} else {
+    initPricingCalculator();
+}
 </script>
 
 </body>
