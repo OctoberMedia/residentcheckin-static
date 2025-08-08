@@ -1,0 +1,13 @@
+name = "residentcheckin-homepage"
+compatibility_date = "2024-01-01"
+
+# These environment variables will be set in Cloudflare Pages dashboard
+# [vars]
+# DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID"
+# CUSTOM_WEBHOOK_URL = "https://your-app.com/webhook/contact-form"
+# SEND_EMAIL_TO = "sales@residentcheckin.co"
+
+# KV namespace binding for storing form submissions
+# [[kv_namespaces]]
+# binding = "CONTACT_FORMS"
+# id = "your-kv-namespace-id"

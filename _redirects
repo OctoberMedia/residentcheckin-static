@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects file
+# Redirect facility-specific pages to the main Rails app
+
+/facility/onboarding https://app.residentcheckin.co/facility/onboarding 302
+/users/sign_in https://app.residentcheckin.co/users/sign_in 302
+/faq https://app.residentcheckin.co/faq 302
+/users/* https://app.residentcheckin.co/users/:splat 302
+/facility/* https://app.residentcheckin.co/facility/:splat 302

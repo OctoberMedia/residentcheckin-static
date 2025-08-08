@@ -1,0 +1,250 @@
+{
+  "name": "ResidentCheckin Contact Form Handler",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "onReceived",
+        "responseData": "{ \"success\": true, \"message\": \"Form received\" }",
+        "options": {}
+      },
+      "id": "webhook-receiver",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "contact-form"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "A:K",
+        "options": {
+          "valueInputMode": "USER_ENTERED"
+        },
+        "dataStartRow": 2,
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "column": "A",
+              "fieldValue": "={{ $json.timestamp }}"
+            },
+            {
+              "column": "B",
+              "fieldValue": "={{ $json.topic }}"
+            },
+            {
+              "column": "C",
+              "fieldValue": "={{ $json.name }}"
+            },
+            {
+              "column": "D",
+              "fieldValue": "={{ $json.email }}"
+            },
+            {
+              "column": "E",
+              "fieldValue": "={{ $json.phone }}"
+            },
+            {
+              "column": "F",
+              "fieldValue": "={{ $json.facility_name }}"
+            },
+            {
+              "column": "G",
+              "fieldValue": "={{ $json.resident_count }}"
+            },
+            {
+              "column": "H",
+              "fieldValue": "={{ $json.current_solution }}"
+            },
+            {
+              "column": "I",
+              "fieldValue": "={{ $json.contact_preference }}"
+            },
+            {
+              "column": "J",
+              "fieldValue": "={{ $json.ip }}"
+            },
+            {
+              "column": "K",
+              "fieldValue": "={{ $json.country }}"
+            }
+          ]
+        }
+      },
+      "id": "google-sheets",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [450, 200],
+      "credentials": {
+        "googleApi": {
+          "id": "YOUR_GOOGLE_CREDENTIALS_ID",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#sales",
+        "text": ":bell: New Contact Form Submission",
+        "attachments": [
+          {
+            "color": "#1d9bd1",
+            "fields": {
+              "item": [
+                {
+                  "short": true,
+                  "title": "Topic",
+                  "value": "={{ $json.topic }}{{ $json.other_topic ? ' - ' + $json.other_topic : '' }}"
+                },
+                {
+                  "short": true,
+                  "title": "Name",
+                  "value": "={{ $json.name || 'Not provided' }}"
+                },
+                {
+                  "short": true,
+                  "title": "Email",
+                  "value": "={{ $json.email }}"
+                },
+                {
+                  "short": true,
+                  "title": "Phone",
+                  "value": "={{ $json.phone }}"
+                },
+                {
+                  "short": false,
+                  "title": "Facility",
+                  "value": "={{ $json.facility_name || 'Not provided' }} ({{ $json.resident_count || '?' }} residents)"
+                },
+                {
+                  "short": false,
+                  "title": "Current Solution",
+                  "value": "={{ $json.current_solution || 'Not provided' }}"
+                },
+                {
+                  "short": false,
+                  "title": "Contact Preference",
+                  "value": "={{ $json.contact_preference || 'Not specified' }}"
+                }
+              ]
+            },
+            "footer": "From {{ $json.country }} • {{ $json.ip }}"
+          }
+        ],
+        "otherOptions": {}
+      },
+      "id": "slack",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [450, 350],
+      "credentials": {
+        "slackApi": {
+          "id": "YOUR_SLACK_CREDENTIALS_ID",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "resource": "person",
+        "name": "={{ $json.name || $json.email }}",
+        "additionalFields": {
+          "email": [
+            {
+              "email": "={{ $json.email }}",
+              "primary": true
+            }
+          ],
+          "phone": [
+            {
+              "phone": "={{ $json.phone }}",
+              "primary": true
+            }
+          ],
+          "organization_id": {
+            "mode": "name",
+            "value": "={{ $json.facility_name }}"
+          }
+        }
+      },
+      "id": "pipedrive-person",
+      "name": "Create Person",
+      "type": "n8n-nodes-base.pipedrive",
+      "typeVersion": 1,
+      "position": [650, 250],
+      "credentials": {
+        "pipedriveApi": {
+          "id": "YOUR_PIPEDRIVE_CREDENTIALS_ID",
+          "name": "Pipedrive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "resource": "deal",
+        "title": "={{ $json.facility_name || 'Unknown Facility' }} - Contact Form Lead",
+        "additionalFields": {
+          "person_id": "={{ $node['Create Person'].json.data.id }}",
+          "value": "={{ $json.resident_count ? $json.resident_count * 50 : 0 }}",
+          "currency": "USD",
+          "stage_id": 1,
+          "note": {
+            "content": "Topic: {{ $json.topic }}\\nCurrent Solution: {{ $json.current_solution || 'None' }}\\nContact Preference: {{ $json.contact_preference || 'Not specified' }}\\n\\nSubmitted: {{ $json.timestamp }}"
+          }
+        }
+      },
+      "id": "pipedrive-deal",
+      "name": "Create Deal",
+      "type": "n8n-nodes-base.pipedrive",
+      "typeVersion": 1,
+      "position": [850, 250],
+      "credentials": {
+        "pipedriveApi": {
+          "id": "YOUR_PIPEDRIVE_CREDENTIALS_ID",
+          "name": "Pipedrive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "webhook-receiver": {
+      "main": [
+        [
+          {
+            "node": "google-sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "slack",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "pipedrive-person",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pipedrive-person": {
+      "main": [
+        [
+          {
+            "node": "pipedrive-deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

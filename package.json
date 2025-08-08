@@ -1,0 +1,12 @@
+{
+  "name": "residentcheckin-static-homepage",
+  "version": "1.0.0",
+  "description": "Static homepage for ResidentCheckin.co",
+  "scripts": {
+    "serve": "npx http-server public -p 3456",
+    "build": "echo 'No build required for static site'"
+  },
+  "keywords": ["senior-living", "wellness-checks", "static-site"],
+  "author": "ResidentCheckin.co",
+  "license": "UNLICENSED"
+}
