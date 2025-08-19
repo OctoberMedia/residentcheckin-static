@@ -162,7 +162,15 @@ document.addEventListener('DOMContentLoaded', function() {{
 }});
 </script>
 
-<!-- Analytics (add your tracking code here) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2J67LGNNQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C2J67LGNNQ');
+</script>
 
 </body>
 </html>'''
