@@ -51,9 +51,9 @@ form_start = content.find('<%= form_with')
 form_end = content.find('<% end %>', form_start) + len('<% end %>')
 
 if form_start != -1 and form_end != -1:
-    # Create a static HTML form
+    # Create a static HTML form that uses Cloudflare Pages Functions
     static_form = '''
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4" id="contact-form">
+            <form action="/api/contact" method="POST" class="space-y-4" id="contact-form" data-contact-form>
               <div>
                 <label for="topic" class="block text-sm font-medium text-gray-700 mb-2">I'm interested in:</label>
                 <select name="topic" id="topic" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required onchange="toggleOtherField(this)">
@@ -196,6 +196,60 @@ document.addEventListener('DOMContentLoaded', function() {{
 }});
 </script>
 
+<!-- Contact Form Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {{
+    const form = document.querySelector('[data-contact-form]');
+    if (!form) return;
+    
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    
+    form.addEventListener('submit', async function(e) {{
+        e.preventDefault();
+        
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        try {{
+            const formData = new FormData(form);
+            const response = await fetch('/api/contact', {{
+                method: 'POST',
+                body: formData
+            }});
+            
+            const result = await response.json();
+            
+            if (response.ok && result.success) {{
+                // Success - show thank you message
+                form.innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+                        <p class="text-gray-600">${{result.message || "We'll be in touch soon."}}</p>
+                    </div>
+                `;
+            }} else {{
+                // Error - show message
+                alert(result.message || 'There was an error submitting the form. Please try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }}
+        }} catch (error) {{
+            console.error('Form submission error:', error);
+            alert('There was an error submitting the form. Please try again later.');
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }}
+    }});
+}});
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2J67LGNNQ"></script>
 <script>
@@ -217,6 +271,9 @@ print(f"Home page extracted and converted successfully!")
 print(f"Version {new_version} generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("\nVersion info saved to version.json")
 print("The version number has been updated in the footer copyright line.")
+print("\nForm Configuration:")
+print("- Contact form uses Cloudflare Pages Functions (/api/contact)")
+print("- No external services required - runs on Cloudflare's edge network")
 print("\nNext steps:")
 print("1. Commit and push to deploy to Cloudflare Pages")
 print("2. Version will be visible at the bottom of the page")
