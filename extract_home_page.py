@@ -5,6 +5,37 @@ Extract and convert the Rails home page to static HTML for Cloudflare Pages
 
 import re
 import os
+import json
+from datetime import datetime
+
+# Load and update version
+version_file = 'version.json'
+try:
+    with open(version_file, 'r') as f:
+        version_data = json.load(f)
+except FileNotFoundError:
+    version_data = {
+        "version": "1.01",
+        "last_updated": datetime.now().isoformat() + 'Z',
+        "deployed_version": None,
+        "deployment_history": []
+    }
+
+# Increment version (minor version bump)
+current_version = version_data.get('version', '1.01')
+major, minor = current_version.split('.')
+minor = int(minor) + 1
+new_version = f"{major}.{minor:02d}"
+
+# Update version data
+version_data['version'] = new_version
+version_data['last_updated'] = datetime.now().isoformat() + 'Z'
+
+# Save updated version
+with open(version_file, 'w') as f:
+    json.dump(version_data, f, indent=2)
+
+print(f"Building version {new_version}...")
 
 # Read the home page content
 with open('../app/views/pages/home.html.erb', 'r') as f:
@@ -91,6 +122,9 @@ if form_start != -1 and form_end != -1:
     
     # Replace the Rails form with the static form
     content = content[:form_start] + static_form + content[form_end:]
+
+# Update version in footer content
+footer_content = re.sub(r'v\d+\.\d+', f'v{new_version}', footer_content)
 
 # Replace the footer render tag
 footer_tag = '<%= render \'shared/footer\' %>'
@@ -179,13 +213,10 @@ document.addEventListener('DOMContentLoaded', function() {{
 with open('public/index.html', 'w') as f:
     f.write(html_document)
 
-print("Home page extracted and converted successfully!")
+print(f"Home page extracted and converted successfully!")
+print(f"Version {new_version} generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print("\nVersion info saved to version.json")
+print("The version number has been updated in the footer copyright line.")
 print("\nNext steps:")
-print("1. Replace 'YOUR_FORM_ID' with your Formspree form ID")
-print("2. Copy image assets to the public directory:")
-print("   - /iamfine-logo-v2.png")
-print("   - /Facility-screenshot.png")
-print("   - /facility-allclear.png")
-print("   - /favicon.ico")
-print("3. Update internal links to point to the Rails app")
-print("4. Deploy to Cloudflare Pages")
+print("1. Commit and push to deploy to Cloudflare Pages")
+print("2. Version will be visible at the bottom of the page")
