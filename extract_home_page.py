@@ -133,6 +133,11 @@ content = content.replace(footer_tag, footer_content)
 # Remove any remaining ERB tags (shouldn't be any, but just in case)
 content = re.sub(r'<%=?[^%>]*%>', '', content)
 
+# TEMPORARY: Update links to point to dev site for testing
+# TODO: Remove this when Rails app is deployed to main domain
+content = content.replace('href="/facility/onboarding"', 'href="https://dev.residentcheckin.co/facility/onboarding"')
+content = content.replace('href="/users/sign_in"', 'href="https://dev.residentcheckin.co/users/sign_in"')
+
 # Create the full HTML document
 html_document = f'''<!DOCTYPE html>
 <html lang="en">
