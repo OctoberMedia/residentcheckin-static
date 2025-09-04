@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | ResidentCheckin.co</title>
+    <meta name="description" content="Common questions about ResidentCheckin automated wellness monitoring system for assisted living facilities.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="FAQ - ResidentCheckin.co">
+    <meta property="og:description" content="Common questions about ResidentCheckin automated wellness monitoring.">
+    <meta property="og:image" content="/Facility-screenshot.png">
+    <meta property="og:url" content="https://residentcheckin.co/faq">
+    <meta property="og:type" content="website">
+    
+    <style>
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background-color: #f3f4f6;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="min-h-screen bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center space-x-2">
+        <a href="/" class="text-2xl font-bold text-indigo-700">ResidentCheckin.co</a>
+      </div>
+      <div class="space-x-6 hidden md:flex items-center">
+        <a href="/" class="text-gray-700 hover:text-indigo-700">Home</a>
+        <a href="/#features" class="text-gray-700 hover:text-indigo-700">Features</a>
+        <a href="/#pricing" class="text-gray-700 hover:text-indigo-700">Pricing</a>
+        <a href="/faq" class="text-indigo-700 font-semibold">FAQ</a>
+        <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
+        <a href="https://dev.residentcheckin.co/users/sign_in" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Facility Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FAQ Header -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
+      <p class="text-xl text-indigo-100">Everything you need to know about ResidentCheckin.co</p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-16">
+    <div class="container mx-auto px-6 max-w-4xl">
+      
+      <!-- Quick Actions -->
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="expandAll()" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+          Expand All
+        </button>
+        <span class="text-gray-400">|</span>
+        <button onclick="collapseAll()" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+          Collapse All
+        </button>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="space-y-4">
+        <% question_id = 0 %>
+        <% faqs.each do |section| %>
+        <!-- <%= section[:section] %> Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900"><%= section[:section] %></h2>
+          
+          <% section[:questions].each_with_index do |qa, index| %>
+          <% question_id += 1 %>
+          <% is_last = (index == section[:questions].length - 1) %>
+          <div class="<%= is_last ? '' : 'border-b border-gray-200' %>">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    onclick="toggleQuestion(<%= question_id %>)"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium"><%= qa[:q] %></span>
+              <svg id="icon-<%= question_id %>" class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-<%= question_id %>" class="hidden px-6 pb-4">
+              <p class="text-gray-600"><%= qa[:a] %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+
+      <!-- Still Have Questions CTA -->
+      <div class="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Still Have Questions?</h2>
+        <p class="text-indigo-100 mb-6">We're here to help you determine if ResidentCheckin is right for your facility.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:paul@iamfine.com" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            Email Us
+          </a>
+          <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+            Start Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 mt-12">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2025 ResidentCheckin.co - All rights reserved</p>
+    </div>
+  </footer>
+</div>
+
+<!-- JavaScript for FAQ functionality -->
+<script>
+function toggleQuestion(id) {
+    const answer = document.getElementById('answer-' + id);
+    const icon = document.getElementById('icon-' + id);
+    
+    if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+    } else {
+        answer.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+    }
+}
+
+function expandAll() {
+    <% (1..question_id).each do |id| %>
+    document.getElementById('answer-<%= id %>').classList.remove('hidden');
+    document.getElementById('icon-<%= id %>').classList.add('rotate-180');
+    <% end %>
+}
+
+function collapseAll() {
+    <% (1..question_id).each do |id| %>
+    document.getElementById('answer-<%= id %>').classList.add('hidden');
+    document.getElementById('icon-<%= id %>').classList.remove('rotate-180');
+    <% end %>
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2J67LGNNQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C2J67LGNNQ');
+</script>
+
+</body>
+</html>
