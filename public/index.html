@@ -87,35 +87,80 @@
 <div class="min-h-screen bg-gray-50">
   <!-- Navigation -->
   <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <div class="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
       <div class="flex items-center space-x-2">
-        <div class="text-2xl font-bold text-indigo-700">ResidentCheckin.co</div>
+        <div class="text-xl sm:text-2xl font-bold text-indigo-700">ResidentCheckin.co</div>
         <span class="text-sm text-gray-600 hidden md:inline">by</span>
-        <a href="https://www.iamfine.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.iamfine.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block">
           <img src="/iamfine-logo-v2.png" alt="IamFine Logo" class="h-6 w-auto hover:opacity-80 transition-opacity">
         </a>
       </div>
-      <div class="space-x-6 hidden md:flex items-center">
+      
+      <!-- Desktop Navigation -->
+      <div class="space-x-6 hidden lg:flex items-center">
         <a href="#features" class="text-gray-700 hover:text-indigo-700">Features</a>
         <a href="#pricing" class="text-gray-700 hover:text-indigo-700">Pricing</a>
         <a href="/faq" class="text-gray-700 hover:text-indigo-700">FAQ</a>
         <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
         <a href="https://dev.residentcheckin.co/users/sign_in" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Facility Login</a>
       </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#features" class="block text-gray-700 hover:text-indigo-700 py-2">Features</a>
+        <a href="#pricing" class="block text-gray-700 hover:text-indigo-700 py-2">Pricing</a>
+        <a href="/faq" class="block text-gray-700 hover:text-indigo-700 py-2">FAQ</a>
+        <div class="pt-3 space-y-3 border-t border-gray-200">
+          <a href="https://dev.residentcheckin.co/facility/onboarding" class="block w-full text-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
+          <a href="https://dev.residentcheckin.co/users/sign_in" class="block w-full text-center bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">Facility Login</a>
+        </div>
+      </div>
     </div>
   </nav>
+  
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      menu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('menu-icon').classList.remove('hidden');
+        document.getElementById('close-icon').classList.add('hidden');
+      });
+    });
+  </script>
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-24 overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-12 sm:py-16 lg:py-24 overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div class="animate-fade-in-up">
-          <h1 class="text-6xl lg:text-7xl font-black mb-6 leading-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
             Save <span class="text-yellow-300">20+ Hours</span> Per Week on Wellness Checks
           </h1>
-          <p class="text-3xl mb-6 text-yellow-100 font-semibold">Designed for independent and assisted living facilities</p>
-          <p class="text-2xl mb-4 text-white opacity-90 leading-relaxed">Know the well-being of all your residents instantly - no more waiting for manual rounds to complete</p>
-          <p class="text-xl mb-6 text-white opacity-80 font-medium">
+          <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 sm:mb-6 text-yellow-100 font-semibold">Designed for independent and assisted living facilities</p>
+          <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 text-white opacity-90 leading-relaxed">Know the well-being of all your residents instantly - no more waiting for manual rounds to complete</p>
+          <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 text-white opacity-80 font-medium">
             <span class="inline-flex items-center">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -132,18 +177,18 @@
           </p>
           
           <!-- Trust indicators -->
-          <div class="flex items-center gap-6 mb-8">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-yellow-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
               </svg>
-              <span class="text-white font-medium">4+ Million Check-ins</span>
+              <span class="text-sm sm:text-base text-white font-medium">4+ Million Check-ins</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
-              <span class="text-white font-medium">Trusted Since 2012</span>
+              <span class="text-sm sm:text-base text-white font-medium">Trusted Since 2012</span>
             </div>
           </div>
           
@@ -189,10 +234,10 @@
     
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-12">
-        <h2 class="text-5xl font-black text-gray-900 mb-4">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
           Two Essential Services, <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">One Platform</span>
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
           ResidentCheckin delivers both safety monitoring AND facility communications in a single, integrated solution
         </p>
       </div>
@@ -207,7 +252,7 @@
               </svg>
             </div>
             <div>
-              <h3 class="text-3xl font-bold text-gray-900">Safety Check-In Service</h3>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Safety Check-In Service</h3>
               <p class="text-indigo-600 font-medium">Service #1</p>
             </div>
           </div>
@@ -265,7 +310,7 @@
               </svg>
             </div>
             <div>
-              <h3 class="text-3xl font-bold text-gray-900">Communication Service</h3>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Communication Service</h3>
               <p class="text-purple-600 font-medium">Service #2</p>
             </div>
           </div>
@@ -317,7 +362,7 @@
       
       <!-- Why This Matters -->
       <div class="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold text-center mb-4">Why Two Services in One Platform?</h3>
+        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-center mb-4">Why Two Services in One Platform?</h3>
         <div class="grid md:grid-cols-3 gap-6 text-center">
           <div>
             <div class="bg-white bg-opacity-20 p-3 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
@@ -360,8 +405,8 @@
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-4">
         <span class="inline-block bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">Service #1</span>
-        <h2 class="text-5xl font-black text-gray-900 mb-4">How Safety Check-In Works</h2>
-        <p class="text-xl text-gray-600 mb-12">Simple, automated wellness monitoring in 6 easy steps</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">How Safety Check-In Works</h2>
+        <p class="text-lg sm:text-xl text-gray-600 mb-12">Simple, automated wellness monitoring in 6 easy steps</p>
       </div>
       
       <div class="max-w-4xl mx-auto">
@@ -373,7 +418,7 @@
               <span class="text-indigo-600 font-bold text-lg">1</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Set Daily Check-in Time</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Set Daily Check-in Time</h3>
               <p class="text-gray-600">Configure a daily check-in time for your residents (e.g., 9:00 AM) through the dashboard</p>
             </div>
           </div>
@@ -384,7 +429,7 @@
               <span class="text-indigo-600 font-bold text-lg">2</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Residents Check In</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Residents Check In</h3>
               <p class="text-gray-600">Residents call or text your facility's number before the specified check-in time to confirm they're okay</p>
             </div>
           </div>
@@ -395,7 +440,7 @@
               <span class="text-indigo-600 font-bold text-lg">3</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Automated Calls Begin</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Automated Calls Begin</h3>
               <p class="text-gray-600">If residents don't check in on time, our system automatically calls them on any phone type</p>
             </div>
           </div>
@@ -406,7 +451,7 @@
               <span class="text-indigo-600 font-bold text-lg">4</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Press "1" to Confirm</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Press "1" to Confirm</h3>
               <p class="text-gray-600">When residents answer, they simply press "1" to check in for the day - no complex interactions</p>
             </div>
           </div>
@@ -417,7 +462,7 @@
               <span class="text-red-600 font-bold text-lg">5</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Security Team Alerts</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Security Team Alerts</h3>
               <p class="text-gray-600">After one hour of no response, we automatically alert your security team for immediate action</p>
             </div>
           </div>
@@ -428,7 +473,7 @@
               <span class="text-green-600 font-bold text-lg">6</span>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Live Dashboard Monitoring</h3>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Live Dashboard Monitoring</h3>
               <p class="text-gray-600">Monitor the entire process in real-time with our comprehensive dashboard showing all resident statuses</p>
             </div>
           </div>
@@ -438,7 +483,7 @@
         <!-- Call to Action -->
         <div class="text-center mt-12">
           <div class="bg-white rounded-lg p-8 shadow-lg inline-block">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Ready to Transform Your Wellness Checks?</h3>
+            <h3 class="text-lg sm:text-xl md:text-lg sm:text-xl md:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">Ready to Transform Your Wellness Checks?</h3>
             <p class="text-gray-600 mb-6">Join facilities already saving 20+ hours per week with automated monitoring</p>
             <div class="space-x-4">
               <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Start Free Trial</a>
@@ -453,11 +498,11 @@
   <!-- Facility Management Tools -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Powerful Facility Management Tools</h2>
+      <h2 class="text-2xl sm:text-3xl md:text-2xl sm:text-3xl md:text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Powerful Facility Management Tools</h2>
       <div class="grid md:grid-cols-2 gap-12">
         <div class="space-y-6">
           <div>
-            <h3 class="text-2xl font-semibold mb-3 text-indigo-700">Resident Management</h3>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3 text-indigo-700">Resident Management</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -493,7 +538,7 @@
           </div>
           
           <div>
-            <h3 class="text-2xl font-semibold mb-3 text-indigo-700">Real-Time Dashboard</h3>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3 text-indigo-700">Real-Time Dashboard</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -538,8 +583,8 @@
     <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-purple-100 rounded-full opacity-20 blur-3xl"></div>
     
     <div class="container mx-auto px-6 relative z-10">
-      <h2 class="text-5xl font-black text-center text-gray-900 mb-4">Works with our mobile app or <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Any phone</span> <span class="text-lg font-normal text-gray-600">(even land lines)</span></h2>
-      <p class="text-xl text-center text-gray-600 mb-12">Five different ways for residents to check in, using caller ID to identify them automatically</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center text-gray-900 mb-4">Works with our mobile app or <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Any phone</span> <span class="text-sm sm:text-base md:text-lg font-normal text-gray-600">(even land lines)</span></h2>
+      <p class="text-lg sm:text-lg sm:text-xl text-center text-gray-600 mb-12">Five different ways for residents to check in, using caller ID to identify them automatically</p>
       
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-indigo-500">
@@ -548,7 +593,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Automated Voice Calls</h3>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3 text-gray-900">Automated Voice Calls</h3>
           <p class="text-gray-600 mb-4">System calls resident, they press 1 to check in. Works with any phone - landline, flip phone, smartphone.</p>
           <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-xl text-sm">
             <p class="font-semibold mb-2 text-indigo-700">What residents hear:</p>
@@ -562,7 +607,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold mb-3">Simple Text Response</h3>
+          <h3 class="text-lg sm:text-xl font-semibold mb-3">Simple Text Response</h3>
           <p class="text-gray-600 mb-4">Residents receive a text and reply "OK" or "Yes". No smartphone needed - works with basic texting.</p>
           <div class="bg-gray-50 p-4 rounded-lg text-sm">
             <div class="bg-white p-3 rounded mb-2 shadow">
@@ -581,7 +626,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold mb-3">Optional Mobile App</h3>
+          <h3 class="text-lg sm:text-xl font-semibold mb-3">Optional Mobile App</h3>
           <p class="text-gray-600 mb-4">For smartphone users who prefer apps - large buttons, clear text, and accessibility features.</p>
           <div class="bg-gray-50 p-4 rounded-lg">
             <img src="/app-checkin-preview.png" alt="Mobile App" class="rounded" />
@@ -592,7 +637,7 @@
       <!-- Additional Methods -->
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-3 flex items-center">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 flex items-center">
             <svg class="w-6 h-6 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
             </svg>
@@ -602,7 +647,7 @@
         </div>
         
         <div class="bg-white p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-3 flex items-center">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 flex items-center">
             <svg class="w-6 h-6 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
@@ -617,8 +662,8 @@
   <!-- Vacation Management -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Complete Vacation Management</h2>
-      <p class="text-xl text-center text-gray-600 mb-12">Schedule time away while maintaining independence and peace of mind</p>
+      <h2 class="text-2xl sm:text-3xl md:text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Complete Vacation Management</h2>
+      <p class="text-lg sm:text-xl text-center text-gray-600 mb-12">Schedule time away while maintaining independence and peace of mind</p>
       
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
@@ -720,14 +765,14 @@
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-4">
         <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">Service #2</span>
-        <h2 class="text-5xl font-black text-gray-900 mb-4">Resident Communication Service</h2>
-        <p class="text-2xl text-gray-700 mb-4 font-medium">Keep Your Community Connected & Informed</p>
-        <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">Transform how you communicate with residents - deliver important messages, activity updates, and urgent alerts during their daily check-in</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">Resident Communication Service</h2>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-700 mb-4 font-medium">Keep Your Community Connected & Informed</p>
+        <p class="text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">Transform how you communicate with residents - deliver important messages, activity updates, and urgent alerts during their daily check-in</p>
       </div>
       
       <!-- Benefits Section Above Images -->
       <div class="bg-white rounded-lg p-8 shadow-lg mb-16">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Why This Matters for Facilities</h3>
+        <h3 class="text-lg sm:text-xl md:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6 text-center">Why This Matters for Facilities</h3>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="bg-indigo-100 p-3 rounded-lg mx-auto w-fit mb-4">
@@ -765,7 +810,7 @@
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <!-- Resident Experience -->
         <div class="bg-white rounded-lg p-8 shadow-lg">
-          <h3 class="text-2xl font-semibold text-gray-900 mb-6">Simple Resident Experience</h3>
+          <h3 class="text-lg sm:text-xl md:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">Simple Resident Experience</h3>
           
           <!-- Phone Call Example -->
           <div class="mb-8">
@@ -806,7 +851,7 @@
         
         <!-- Simple Message Management -->
         <div class="bg-white rounded-lg p-8 shadow-lg">
-          <h3 class="text-2xl font-semibold text-gray-900 mb-6">Simple Message Management</h3>
+          <h3 class="text-lg sm:text-xl md:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">Simple Message Management</h3>
           <div class="text-center">
             <img src="/facility-messaging-calendar.png" alt="Daily Notifications Calendar Interface" class="rounded-lg shadow-md w-full mb-4" />
             <p class="text-gray-600 text-sm">Schedule messages using our intuitive calendar interface - color-coded by priority</p>
@@ -820,8 +865,8 @@
   <!-- Mobile-First for Seniors -->
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Designed for Senior Independence</h2>
-      <p class="text-xl text-center text-gray-600 mb-12">No technology barriers - residents choose their preferred method</p>
+      <h2 class="text-2xl sm:text-3xl md:text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Designed for Senior Independence</h2>
+      <p class="text-lg sm:text-xl text-center text-gray-600 mb-12">No technology barriers - residents choose their preferred method</p>
       
       <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8 mb-12">
@@ -831,7 +876,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Any Phone Works</h3>
+            <h3 class="text-lg sm:text-xl font-semibold mb-2">Any Phone Works</h3>
             <p class="text-gray-600">Landline, flip phone, smartphone - our caller ID system identifies residents automatically</p>
           </div>
           
@@ -841,7 +886,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Resident Choice</h3>
+            <h3 class="text-lg sm:text-xl font-semibold mb-2">Resident Choice</h3>
             <p class="text-gray-600">Each resident can use their preferred method - phone call, text, app, or in-person with staff</p>
           </div>
           
@@ -851,13 +896,13 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-2">App Optional</h3>
+            <h3 class="text-lg sm:text-xl font-semibold mb-2">App Optional</h3>
             <p class="text-gray-600">For residents comfortable with smartphones - large buttons, clear text, accessibility features</p>
           </div>
         </div>
         
         <div class="bg-white rounded-lg p-8 shadow-lg text-center">
-          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Independence + Peace of Mind</h3>
+          <h3 class="text-lg sm:text-xl md:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">Independence + Peace of Mind</h3>
           <p class="text-lg text-gray-600 mb-6">Residents maintain their independent lifestyle while facilities ensure their well-being and safety</p>
           <div class="grid md:grid-cols-2 gap-8 text-left">
             <div>
@@ -899,8 +944,8 @@
   <!-- Pricing Section -->
   <section id="pricing" class="py-16 bg-white">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-      <p class="text-xl text-center text-gray-600 mb-4">Pay based on your facility size, billed monthly with NET 30 terms</p>
+      <h2 class="text-2xl sm:text-3xl md:text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+      <p class="text-lg sm:text-xl text-center text-gray-600 mb-4">Pay based on your facility size, billed monthly with NET 30 terms</p>
       <p class="text-lg text-center text-indigo-700 font-semibold mb-12">
         <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -910,7 +955,7 @@
       
       <!-- Interactive Pricing Calculator -->
       <div class="max-w-2xl mx-auto mb-12" data-controller="pricing">
-        <h3 class="text-xl font-bold text-center text-gray-900 mb-6">Calculate Your Pricing</h3>
+        <h3 class="text-lg sm:text-xl font-bold text-center text-gray-900 mb-6">Calculate Your Pricing</h3>
         
         <!-- Two Cards Side by Side -->
         <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -1042,7 +1087,7 @@
   <!-- Testimonials -->
   <section id="testimonials" class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-4">Trusted by Independent Living Communities</h2>
+      <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4">Trusted by Independent Living Communities</h2>
       <p class="text-center text-gray-600 mb-12">Built on IamFine.com's proven platform with 4+ million check-ins processed</p>
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <div class="bg-white rounded-lg p-8 shadow-lg">
@@ -1112,14 +1157,14 @@
     <div class="container mx-auto px-6">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Wellness Checks?</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Wellness Checks?</h2>
           <p class="text-xl text-white">Join facilities saving 20+ hours per week while improving resident safety and independence</p>
         </div>
         
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <!-- Contact Form -->
           <div class="bg-white rounded-lg p-8 text-gray-900" data-controller="contact-form">
-            <h3 class="text-2xl font-semibold mb-6">Get Started Today</h3>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-6">Get Started Today</h3>
             <div data-contact-form-target="status"></div>
             
             <form action="/api/contact" method="POST" class="space-y-4" id="contact-form" data-contact-form>
@@ -1193,7 +1238,7 @@
           <!-- Trial CTA -->
           <div class="space-y-8">
             <div class="bg-green-600 rounded-lg p-8 text-center">
-              <h3 class="text-2xl font-semibold mb-4">Or Start Your Free Trial Now</h3>
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-4">Or Start Your Free Trial Now</h3>
               <p class="text-green-100 mb-6">Test with up to 5 residents for 2 weeks - no commitment required</p>
               <a href="https://dev.residentcheckin.co/facility/onboarding" class="inline-block bg-white text-green-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
                 Start 2-Week Trial
@@ -1245,7 +1290,7 @@
       </div>
     </div>
     <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.10</p>
+      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.11</p>
     </div>
   </div>
 </footer>
@@ -1366,6 +1411,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (mobileMenuButton && mobileMenu && menuIcon) {
+        mobileMenuButton.addEventListener('click', function() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+            }
+        });
+    }
 });
 
 function toggleOtherField(select) {
@@ -1376,59 +1440,6 @@ function toggleOtherField(select) {
         otherField.style.display = 'none';
     }
 }
-</script>
-
-
-<!-- Contact Form Handler -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('[data-contact-form]');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Disable submit button
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (response.ok && result.success) {
-                // Success - show thank you message
-                form.innerHTML = `
-                    <div class="text-center py-8">
-                        <div class="mb-4">
-                            <svg class="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-                        <p class="text-gray-600">${result.message || "We'll be in touch soon."}</p>
-                    </div>
-                `;
-            } else {
-                // Error - show message
-                alert(result.message || 'There was an error submitting the form. Please try again.');
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('There was an error submitting the form. Please try again later.');
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-        }
-    });
-});
 </script>
 
 </body>

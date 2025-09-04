@@ -304,6 +304,25 @@ document.addEventListener('DOMContentLoaded', function() {{
             }}
         }});
     }}
+    
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (mobileMenuButton && mobileMenu && menuIcon) {{
+        mobileMenuButton.addEventListener('click', function() {{
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {{
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+            }} else {{
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+            }}
+        }});
+    }}
 }});
 
 function toggleOtherField(select) {{
