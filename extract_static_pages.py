@@ -339,14 +339,15 @@ function toggleOtherField(select) {{
 </html>'''
 
 def extract_other_pages():
-    """Extract FAQ, Privacy, Terms, and Cookies pages from Rails"""
+    """Generate FAQ using template, extract other pages from Rails"""
+    
+    # Generate FAQ using our clean template
+    print("Generating FAQ page from template...")
+    os.system("ruby generate_faq_static.rb")
+    print("  Saved to public/faq.html")
+    
+    # Extract other pages from Rails
     pages = [
-        {
-            'path': '/faq',
-            'output': 'public/faq.html',
-            'title': 'Frequently Asked Questions | ResidentCheckin.co',
-            'description': 'Common questions about ResidentCheckin automated wellness monitoring system for assisted living facilities.'
-        },
         {
             'path': '/privacy',
             'output': 'public/privacy.html',
@@ -372,10 +373,17 @@ def extract_other_pages():
         content = get_page_content(page['path'])
         
         if content:
+            # Remove ALL Rails-specific JavaScript module imports
+            content = re.sub(r'<link rel="modulepreload"[^>]*>', '', content)
+            content = re.sub(r'<script type="module">import "application"</script>', '', content)
+            
             # Clean up Rails-specific elements
             # Remove Rails asset pipeline references
             content = re.sub(r'<link[^>]*data-turbo-track[^>]*>', '', content)
             content = re.sub(r'<script[^>]*data-turbo-track[^>]*>.*?</script>', '', content, flags=re.DOTALL)
+            
+            # Remove CSRF tokens
+            content = re.sub(r'<meta name="csrf-[^"]*"[^>]*>', '', content)
             
             # Fix links to point to appropriate locations
             content = content.replace('href="/facility/onboarding"', 'href="https://dev.residentcheckin.co/facility/onboarding"')
@@ -443,12 +451,12 @@ def main():
     
     print("\n" + "=" * 50)
     print(f"Version {new_version} generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("\nPages extracted:")
-    print("  - Home page (index.html)")
-    print("  - FAQ page (faq.html)")
-    print("  - Privacy page (privacy.html)")
-    print("  - Cookies page (cookies.html)")
-    print("  - Terms page (terms.html)")
+    print("\nPages generated:")
+    print("  - Home page (index.html) - extracted from Rails")
+    print("  - FAQ page (faq.html) - generated from clean template")
+    print("  - Privacy page (privacy.html) - extracted from Rails")
+    print("  - Cookies page (cookies.html) - extracted from Rails")
+    print("  - Terms page (terms.html) - extracted from Rails")
     print("\nNext steps:")
     print("1. Commit and push to deploy to Cloudflare Pages")
     print("2. All pages will be available on the public site")
