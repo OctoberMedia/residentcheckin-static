@@ -1,0 +1,624 @@
+<!-- BEGIN app/views/layouts/landing.html.erb --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Page Title -->
+  <title>Cookie Policy | ResidentCheckin.co</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="ResidentCheckin.co cookie policy. Learn about the cookies we use and how to manage your cookie preferences.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="cookie policy, cookies, privacy, tracking, cookie consent">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://dev.residentcheckin.co/cookies">
+  
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, noarchive">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://dev.residentcheckin.co/cookies">
+  <meta property="og:type" content="">
+  <meta property="og:site_name" content="ResidentCheckin.co">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ResidentCheckin.co - Automated Wellness Check-ins for Assisted Living">
+  <meta name="twitter:description" content="">
+  
+  <!-- Author and Publisher -->
+  <meta name="author" content="ResidentCheckin.co">
+  <link rel="publisher" href="https://residentcheckin.co">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- Structured Data -->
+  
+  
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="kDyeVZixqBuRj4w4c84Hii6vP-0WWdt36Qx-gx8xdFRLbg251wbEE2E8IejReHxsSaZAT5haBTkbz-nsqpQPfw" />
+  
+  
+  
+  
+<link rel="modulepreload" href="/assets/application-b797b0e0.js">
+<link rel="modulepreload" href="/assets/turbo.min-1262d735.js">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js">
+<link rel="modulepreload" href="https://esm.sh/lucide">
+<link rel="modulepreload" href="/assets/@rails--ujs-69e21124.js">
+<link rel="modulepreload" href="/assets/controllers/application-cf0f7feb.js">
+<link rel="modulepreload" href="/assets/controllers/audit_log_modal_controller-7f935e21.js">
+<link rel="modulepreload" href="/assets/controllers/auto_submit_controller-84b5b7ef.js">
+<link rel="modulepreload" href="/assets/controllers/braintree_payment_controller-8e523809.js">
+<link rel="modulepreload" href="/assets/controllers/calls_toggle_controller-910c8c57.js">
+<link rel="modulepreload" href="/assets/controllers/care_circle_member_email_notify_controller-6017d960.js">
+<link rel="modulepreload" href="/assets/controllers/checkin_fields_controller-aab18ceb.js">
+<link rel="modulepreload" href="/assets/controllers/contact_form_controller-e2b717cd.js">
+<link rel="modulepreload" href="/assets/controllers/copy_contact_controller-fbab9fa9.js">
+<link rel="modulepreload" href="/assets/controllers/country_address_controller-9a94171c.js">
+<link rel="modulepreload" href="/assets/controllers/dashboard_polling_controller-0067ae98.js">
+<link rel="modulepreload" href="/assets/controllers/disclosure_controller-f9f772c9.js">
+<link rel="modulepreload" href="/assets/controllers/dropdown_controller-2cfa14c9.js">
+<link rel="modulepreload" href="/assets/controllers/early_checkin_countdown_controller-a027347d.js">
+<link rel="modulepreload" href="/assets/controllers/email_template_controller-824e1f09.js">
+<link rel="modulepreload" href="/assets/controllers/email_validation_controller-83e1eb21.js">
+<link rel="modulepreload" href="/assets/controllers/event_log_modal_controller-de64932f.js">
+<link rel="modulepreload" href="/assets/controllers/facility_dashboard_controller-c83a622e.js">
+<link rel="modulepreload" href="/assets/controllers/facility_settings_controller-d2070233.js">
+<link rel="modulepreload" href="/assets/controllers/flash_controller-bd47d5bc.js">
+<link rel="modulepreload" href="/assets/controllers/form_change_controller-9cef9f62.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-708796bd.js">
+<link rel="modulepreload" href="/assets/controllers/index-28809a0a.js">
+<link rel="modulepreload" href="/assets/controllers/job_args_toggle_controller-825ff0cc.js">
+<link rel="modulepreload" href="/assets/controllers/job_details_controller-34f819a5.js">
+<link rel="modulepreload" href="/assets/controllers/job_modal_controller-3a9fc020.js">
+<link rel="modulepreload" href="/assets/controllers/job_toggle_controller-fcdacbb5.js">
+<link rel="modulepreload" href="/assets/controllers/modal_controller-d71a7a23.js">
+<link rel="modulepreload" href="/assets/controllers/navbar_clock_controller-e7a0a4c8.js">
+<link rel="modulepreload" href="/assets/controllers/notification_controller-9a951b34.js">
+<link rel="modulepreload" href="/assets/controllers/old_schedule_form_controller-71547205.js">
+<link rel="modulepreload" href="/assets/controllers/pagination_controller-0472982a.js">
+<link rel="modulepreload" href="/assets/controllers/password_strength_controller-093695b8.js">
+<link rel="modulepreload" href="/assets/controllers/phone_format_controller-2fe348b5.js">
+<link rel="modulepreload" href="/assets/controllers/phone_input_controller-7983ec40.js">
+<link rel="modulepreload" href="/assets/controllers/phone_input_v2_controller-10e051e2.js">
+<link rel="modulepreload" href="/assets/controllers/pricing_calculator_controller-871e3ce6.js">
+<link rel="modulepreload" href="/assets/controllers/pricing_controller-84d4b7b5.js">
+<link rel="modulepreload" href="/assets/controllers/recurring_message_controller-8fdea455.js">
+<link rel="modulepreload" href="/assets/controllers/resident_form_controller-23653b4f.js">
+<link rel="modulepreload" href="/assets/controllers/residents_dashboard_controller-13b6efc7.js">
+<link rel="modulepreload" href="/assets/controllers/schedule_mode_controller-afc8ec83.js">
+<link rel="modulepreload" href="/assets/controllers/schedule_preview_controller-d020201e.js">
+<link rel="modulepreload" href="/assets/controllers/table_refresh_controller-e584909b.js">
+<link rel="modulepreload" href="/assets/controllers/tabs_controller-3c97190f.js">
+<link rel="modulepreload" href="/assets/controllers/terms_agreement_controller-b339af04.js">
+<link rel="modulepreload" href="/assets/controllers/time_validation_controller-6c29b5af.js">
+<link rel="modulepreload" href="/assets/controllers/toggle_controller-e5440818.js">
+<link rel="modulepreload" href="/assets/controllers/universal_checkin_controller-fe9f2464.js">
+<link rel="modulepreload" href="/assets/controllers/vacation_calendar_controller-b50ef453.js">
+<link rel="modulepreload" href="/assets/controllers/verification_status_controller-48fb3f62.js">
+<link rel="modulepreload" href="/assets/controllers/visibility_controller-26b1f92a.js">
+<link rel="modulepreload" href="/assets/controllers/zip-timezone-controller-870a1967.js">
+<script type="module">import "application"</script>
+  <!-- BEGIN app/views/layouts/_google_analytics.html.erb --><!-- Google Analytics - Respects Cookie Consent -->
+<script>
+  // Store GA ID for cookie consent controller
+  window.googleAnalyticsId = 'G-C2J67LGNNQ';
+  
+  // Check if analytics consent has been given
+  function checkAnalyticsConsent() {
+    const consentData = localStorage.getItem('cookie_consent');
+    if (consentData) {
+      try {
+        const consent = JSON.parse(consentData);
+        return consent.consents && consent.consents.analytics === true;
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+  }
+  
+  // Only load Google Analytics if consent has been given
+  if (checkAnalyticsConsent()) {
+    // Load Google Analytics
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-C2J67LGNNQ';
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C2J67LGNNQ', {
+      anonymize_ip: true, // GDPR compliance
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  }
+  
+  // Listen for consent changes
+  window.addEventListener('cookieConsentUpdated', function(event) {
+    if (event.detail.analytics && !window.gtag) {
+      // Consent given, load GA
+      location.reload(); // Simple reload to load GA
+    } else if (!event.detail.analytics && window.gtag) {
+      // Consent revoked, remove GA
+      location.reload(); // Simple reload to remove GA
+    }
+  });
+</script><!-- END app/views/layouts/_google_analytics.html.erb -->
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+</head>
+<body>
+  <!-- BEGIN app/views/shared/_cookie_consent.html.erb --><div data-controller="cookie-consent"
+     data-cookie-consent-google-analytics-id-value="G-XXXXXXXXXX"
+     class="fixed inset-0 z-[9999] pointer-events-none">
+  
+  <!-- Cookie Banner -->
+  <div data-cookie-consent-target="banner"
+       class="hidden fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 shadow-2xl transform translate-y-full opacity-0 transition-all duration-300 pointer-events-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+      <div class="lg:flex lg:items-center lg:justify-between">
+        <div class="flex-1 mb-4 lg:mb-0">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">
+            🍪 We value your privacy
+          </h3>
+          <p class="text-sm text-gray-600 mb-3 max-w-3xl">
+            We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
+            Some cookies are essential for the website to function, while others help us understand how you use our service.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <a href="/privacy" class="text-indigo-600 hover:text-indigo-800 underline" target="_blank">Privacy Policy</a>
+            <span class="text-gray-400">•</span>
+            <a href="/cookies" class="text-indigo-600 hover:text-indigo-800 underline" target="_blank">Cookie Policy</a>
+            <span class="text-gray-400">•</span>
+            <button data-action="click->cookie-consent#showCustomize" 
+                    class="text-indigo-600 hover:text-indigo-800 underline">
+              Manage Preferences
+            </button>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-3 lg:ml-6 lg:flex-shrink-0">
+          <button data-action="click->cookie-consent#acceptEssential"
+                  class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors">
+            Essential Only
+          </button>
+          <button data-action="click->cookie-consent#acceptAll"
+                  data-cookie-consent-target="acceptAll"
+                  class="px-6 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-md">
+            Accept All Cookies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Preferences Modal -->
+  <div data-cookie-consent-target="modal"
+       class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 items-center justify-center z-50 pointer-events-auto">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold text-gray-900">Cookie Preferences</h2>
+          <button data-action="click->cookie-consent#hideModal"
+                  class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="px-6 py-4">
+        <p class="text-sm text-gray-600 mb-6">
+          Choose which cookies you want to accept. Essential cookies are always enabled as they are required for the website to function properly.
+        </p>
+        
+        <!-- Cookie Categories -->
+        <div class="space-y-4">
+          <!-- Essential Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       checked 
+                       disabled
+                       data-cookie-consent-target="essentialCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-not-allowed opacity-75">
+              </div>
+              <div class="ml-3 flex-1">
+                <label class="font-medium text-gray-900">Essential Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Required for the website to function properly. These include security, authentication, and session management cookies.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: _session_id, csrf_token, remember_user_token
+                </p>
+              </div>
+              <span class="ml-3 px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                Always On
+              </span>
+            </div>
+          </div>
+          
+          <!-- Functional Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="functionalCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="functional" class="font-medium text-gray-900 cursor-pointer">Functional Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Remember your preferences and provide enhanced features like language selection and timezone settings.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: timezone, locale, display_preferences
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Analytics Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="analyticsCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="analytics" class="font-medium text-gray-900 cursor-pointer">Analytics Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Help us understand how visitors use our website, which pages are most popular, and how to improve our service.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: Google Analytics (_ga, _gid, _gat)
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Marketing Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="marketingCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="marketing" class="font-medium text-gray-900 cursor-pointer">Marketing Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Used to show relevant advertisements and track marketing campaign effectiveness. Currently not in use.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: Facebook Pixel, Google Ads
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Privacy Info -->
+        <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-800">
+                Your consent preferences are stored for 1 year and can be changed at any time. 
+                We respect your privacy and comply with GDPR, CCPA, and other privacy regulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-lg">
+        <div class="flex justify-between items-center">
+          <a href="/privacy" class="text-sm text-indigo-600 hover:text-indigo-800" target="_blank">
+            Privacy Policy
+          </a>
+          <div class="flex gap-3">
+            <button data-action="click->cookie-consent#hideModal"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 rounded-lg transition-colors">
+              Cancel
+            </button>
+            <button data-action="click->cookie-consent#saveCustomized"
+                    class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
+              Save Preferences
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Link (for footer) -->
+<script>
+  // Add cookie settings link to footer if it exists
+  document.addEventListener('DOMContentLoaded', function() {
+    const footer = document.querySelector('footer');
+    if (footer && !document.querySelector('.cookie-settings-link')) {
+      const settingsLink = document.createElement('button');
+      settingsLink.className = 'cookie-settings-link text-sm text-gray-600 hover:text-indigo-600 underline';
+      settingsLink.textContent = '🍪 Cookie Settings';
+      settingsLink.onclick = function(e) {
+        e.preventDefault();
+        const controller = document.querySelector('[data-controller="cookie-consent"]');
+        if (controller && controller._stimulus_controller) {
+          controller._stimulus_controller.openPreferences(e);
+        }
+      };
+      
+      // Try to add to footer links area
+      const footerLinks = footer.querySelector('.footer-links, .links, nav');
+      if (footerLinks) {
+        footerLinks.appendChild(settingsLink);
+      }
+    }
+  });
+</script><!-- END app/views/shared/_cookie_consent.html.erb -->
+  <!-- BEGIN app/views/pages/cookies.html.erb -->
+<div class="min-h-screen bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center space-x-2">
+        <a href="/" class="text-2xl font-bold text-indigo-700">ResidentCheckin.co</a>
+      </div>
+      <div class="space-x-6 hidden md:flex items-center">
+        <a href="/" class="text-gray-700 hover:text-indigo-700">Home</a>
+        <a href="/privacy" class="text-gray-700 hover:text-indigo-700">Privacy</a>
+        <a href="/cookies" class="text-indigo-700 font-semibold">Cookies</a>
+        <a href="/terms" class="text-gray-700 hover:text-indigo-700">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Cookie Policy</h1>
+    <p class="text-sm text-gray-600 mb-8">Last updated: September 04, 2025 | Version 1.0</p>
+    
+    <div class="bg-indigo-50 p-6 rounded-lg mb-8">
+      <p class="text-indigo-900 font-medium mb-2">🍪 Manage Your Cookie Preferences</p>
+      <p class="text-indigo-800 mb-4">You can update your cookie preferences at any time.</p>
+      <button onclick="openCookiePreferences()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+        Manage Cookie Settings
+      </button>
+    </div>
+    
+    <div class="prose prose-lg max-w-none">
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. What Are Cookies?</h2>
+        <p class="text-gray-700 mb-4">
+          Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and understanding how you use our service.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. How We Use Cookies</h2>
+        <p class="text-gray-700 mb-4">We use cookies for the following purposes:</p>
+        <ul class="list-disc pl-6 text-gray-700 mb-4">
+          <li><strong>Authentication:</strong> To keep you signed in to your account</li>
+          <li><strong>Security:</strong> To protect against fraud and maintain service security</li>
+          <li><strong>Preferences:</strong> To remember your settings and preferences</li>
+          <li><strong>Analytics:</strong> To understand how you use our service (with consent)</li>
+          <li><strong>Performance:</strong> To monitor and improve service performance</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. Types of Cookies We Use</h2>
+        
+        <div class="bg-green-50 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold text-green-900 mb-3">✅ Essential Cookies (Always Active)</h3>
+          <p class="text-green-800 mb-3">Required for the website to function. Cannot be disabled.</p>
+          <table class="min-w-full">
+            <thead>
+              <tr class="border-b border-green-200">
+                <th class="text-left py-2 text-green-900">Cookie Name</th>
+                <th class="text-left py-2 text-green-900">Purpose</th>
+                <th class="text-left py-2 text-green-900">Duration</th>
+              </tr>
+            </thead>
+            <tbody class="text-green-800">
+              <tr class="border-b border-green-100">
+                <td class="py-2">_session_id</td>
+                <td class="py-2">Maintains your session</td>
+                <td class="py-2">Session</td>
+              </tr>
+              <tr class="border-b border-green-100">
+                <td class="py-2">csrf_token</td>
+                <td class="py-2">Security protection</td>
+                <td class="py-2">Session</td>
+              </tr>
+              <tr class="border-b border-green-100">
+                <td class="py-2">cookie_consent</td>
+                <td class="py-2">Stores consent preferences</td>
+                <td class="py-2">1 year</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-3">🔧 Functional Cookies</h3>
+          <p class="text-blue-800 mb-3">Help provide enhanced functionality and personalization.</p>
+          <table class="min-w-full">
+            <thead>
+              <tr class="border-b border-blue-200">
+                <th class="text-left py-2 text-blue-900">Cookie Name</th>
+                <th class="text-left py-2 text-blue-900">Purpose</th>
+                <th class="text-left py-2 text-blue-900">Duration</th>
+              </tr>
+            </thead>
+            <tbody class="text-blue-800">
+              <tr class="border-b border-blue-100">
+                <td class="py-2">remember_user_token</td>
+                <td class="py-2">"Remember me" functionality</td>
+                <td class="py-2">2 weeks</td>
+              </tr>
+              <tr class="border-b border-blue-100">
+                <td class="py-2">timezone</td>
+                <td class="py-2">Your timezone preference</td>
+                <td class="py-2">1 year</td>
+              </tr>
+              <tr class="border-b border-blue-100">
+                <td class="py-2">locale</td>
+                <td class="py-2">Language preference</td>
+                <td class="py-2">1 year</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-purple-50 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold text-purple-900 mb-3">📊 Analytics Cookies</h3>
+          <p class="text-purple-800 mb-3">Help us understand how visitors use our website.</p>
+          <table class="min-w-full">
+            <thead>
+              <tr class="border-b border-purple-200">
+                <th class="text-left py-2 text-purple-900">Cookie Name</th>
+                <th class="text-left py-2 text-purple-900">Provider</th>
+                <th class="text-left py-2 text-purple-900">Purpose</th>
+                <th class="text-left py-2 text-purple-900">Duration</th>
+              </tr>
+            </thead>
+            <tbody class="text-purple-800">
+              <tr class="border-b border-purple-100">
+                <td class="py-2">_ga</td>
+                <td class="py-2">Google Analytics</td>
+                <td class="py-2">Distinguishes users</td>
+                <td class="py-2">2 years</td>
+              </tr>
+              <tr class="border-b border-purple-100">
+                <td class="py-2">_gid</td>
+                <td class="py-2">Google Analytics</td>
+                <td class="py-2">Distinguishes users</td>
+                <td class="py-2">24 hours</td>
+              </tr>
+              <tr class="border-b border-purple-100">
+                <td class="py-2">_gat</td>
+                <td class="py-2">Google Analytics</td>
+                <td class="py-2">Throttle requests</td>
+                <td class="py-2">1 minute</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">📢 Marketing Cookies</h3>
+          <p class="text-gray-700 mb-3">Currently not in use, but reserved for future marketing purposes.</p>
+          <p class="text-gray-600 text-sm">If we add marketing cookies in the future, we will update this policy and request your consent.</p>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. Your Cookie Choices</h2>
+        <p class="text-gray-700 mb-4">You have several options for managing cookies:</p>
+        <ul class="list-disc pl-6 text-gray-700 mb-4">
+          <li><strong>Cookie Settings:</strong> Use our cookie preference center to accept or reject different categories</li>
+          <li><strong>Browser Settings:</strong> Most browsers allow you to block or delete cookies</li>
+          <li><strong>Do Not Track:</strong> We respect Do Not Track signals when analytics consent is not given</li>
+        </ul>
+        <div class="bg-yellow-50 p-4 rounded-lg">
+          <p class="text-yellow-800">
+            <strong>⚠️ Note:</strong> Blocking essential cookies may prevent you from using certain features of our service.
+          </p>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Third-Party Cookies</h2>
+        <p class="text-gray-700 mb-4">We use services from trusted third parties that may set cookies:</p>
+        <ul class="list-disc pl-6 text-gray-700 mb-4">
+          <li><strong>Google Analytics:</strong> For website analytics (only with consent)</li>
+          <li><strong>Stripe:</strong> For payment processing (essential for payments)</li>
+          <li><strong>Twilio:</strong> For communication services (does not use cookies)</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">6. Cookie Consent Record</h2>
+        <p class="text-gray-700 mb-4">
+          When you make a choice about cookies, we record:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 mb-4">
+          <li>Your consent ID and timestamp</li>
+          <li>The categories you consented to</li>
+          <li>The version of the cookie policy shown</li>
+          <li>Your IP address (for legal compliance)</li>
+        </ul>
+        <p class="text-gray-700 mb-4">
+          You can request a copy of your consent record by contacting <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cbbbb9a2bdaaa8b28bb9aeb8a2afaea5bfa8a3aea8a0a2a5e5a8a4">[email&#160;protected]</a>
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">7. Updates to This Policy</h2>
+        <p class="text-gray-700 mb-4">
+          We may update this Cookie Policy from time to time. If we make significant changes, we will notify you and request new consent where required.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">8. Contact Us</h2>
+        <div class="bg-gray-100 p-6 rounded-lg">
+          <p class="text-gray-700 mb-2"><strong>Cookie Policy Questions</strong></p>
+          <p class="text-gray-700">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a6a68736c7b79635a687f69737e7f746e79727f79717374347975">[email&#160;protected]</a></p>
+          <p class="text-gray-700">Phone: 1-800-XXX-XXXX</p>
+        </div>
+      </section>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <p class="text-sm text-gray-600 text-center">
+        © 2025 ResidentCheckin.co - All rights reserved | 
+        <a href="/privacy" class="text-indigo-600 hover:text-indigo-800">Privacy</a> | 
+        <a href="/cookies" class="text-indigo-600 hover:text-indigo-800">Cookies</a> | 
+        <a href="/terms" class="text-indigo-600 hover:text-indigo-800">Terms</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function openCookiePreferences() {
+    const controller = document.querySelector('[data-controller="cookie-consent"]');
+    if (controller && controller._stimulus_controller) {
+      controller._stimulus_controller.openPreferences();
+    } else {
+      // If not on a page with the consent controller, redirect to home
+      window.location.href = '/?show_cookie_settings=true';
+    }
+  }
+</script><!-- END app/views/pages/cookies.html.erb -->
+</body>
+</html> <!-- END app/views/layouts/landing.html.erb -->

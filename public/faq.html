@@ -1,0 +1,834 @@
+<!-- BEGIN app/views/layouts/landing.html.erb --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Page Title -->
+  <title>Frequently Asked Questions | ResidentCheckin.co</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="Common questions about ResidentCheckin automated wellness monitoring system for assisted living facilities. Setup, pricing, compliance, and more.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="assisted living FAQ, wellness check questions, senior care software help, facility monitoring questions">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://dev.residentcheckin.co/faq">
+  
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://dev.residentcheckin.co/faq">
+  <meta property="og:type" content="">
+  <meta property="og:site_name" content="ResidentCheckin.co">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ResidentCheckin.co - Automated Wellness Check-ins for Assisted Living">
+  <meta name="twitter:description" content="">
+  
+  <!-- Author and Publisher -->
+  <meta name="author" content="ResidentCheckin.co">
+  <link rel="publisher" href="https://residentcheckin.co">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- Structured Data -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can we get set up?","acceptedAnswer":{"@type":"Answer","text":"Most facilities are up and running within 24-48 hours. Our onboarding process includes phone number configuration, resident enrollment, staff training, security team setup, and test calls."}},{"@type":"Question","name":"What information do we need to provide?","acceptedAnswer":{"@type":"Answer","text":"To get started, we need facility contact information, preferred check-in time, resident list with names and phone numbers, and security team contact information for alerts."}},{"@type":"Question","name":"Is there a minimum contract length?","acceptedAnswer":{"@type":"Answer","text":"No long-term contracts required. We have a 90 day cancellation clause."}},{"@type":"Question","name":"What types of phones work with the system?","acceptedAnswer":{"@type":"Answer","text":"Our system works with ANY phone type - landlines, basic cell phones, flip phones, smartphones. No smartphone or internet required. Residents just need to be able to answer calls and press '1' on their keypad."}},{"@type":"Question","name":"What happens if a resident doesn't answer the automated call?","acceptedAnswer":{"@type":"Answer","text":"We call out at the check-in time, then call every 15 minutes for an hour, after which the security team is notified."}},{"@type":"Question","name":"Can residents check in early?","acceptedAnswer":{"@type":"Answer","text":"Yes! Residents can check in early by calling in, sending a text, using our custom smartphone Big Button App, or letting the security team know they are ok. The team can check them in manually."}},{"@type":"Question","name":"How do vacations and time away work?","acceptedAnswer":{"@type":"Answer","text":"Our vacation management system allows scheduling vacations in advance. Check-in calls automatically pause during vacation periods and resume on the return date. Dashboard shows who's on vacation and when they return."}},{"@type":"Question","name":"Are there any additional fees?","acceptedAnswer":{"@type":"Answer","text":"There is a one-time setup fee of $500. No cancellation fees, no per-call charges. The monthly fee includes everything: unlimited automated calls, text messaging, dashboard access, and support."}},{"@type":"Question","name":"What kind of support do you provide?","acceptedAnswer":{"@type":"Answer","text":"Comprehensive support including email and phone support during business hours, emergency support 24/7, initial staff training, ongoing training for new staff, and regular check-ins to ensure optimal usage."}},{"@type":"Question","name":"Does this help with state regulations and funding compliance?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many housing authorities and facilities use our system to demonstrate systematic wellness monitoring for compliance reporting. We provide detailed logs and reports that document your wellness check procedures."}}]}</script>
+
+  
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="5G8uhJLZLhh6k8OMXP-1qeHq5YqaoGiDbb8IoCT9rIl6Z4eX_zBUNTev8UN9J6j95JQEUFFgIMYI_7psCwu9bA" />
+  
+  
+  
+  
+<link rel="modulepreload" href="/assets/application-b797b0e0.js">
+<link rel="modulepreload" href="/assets/turbo.min-1262d735.js">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js">
+<link rel="modulepreload" href="https://esm.sh/lucide">
+<link rel="modulepreload" href="/assets/@rails--ujs-69e21124.js">
+<link rel="modulepreload" href="/assets/controllers/application-cf0f7feb.js">
+<link rel="modulepreload" href="/assets/controllers/audit_log_modal_controller-7f935e21.js">
+<link rel="modulepreload" href="/assets/controllers/auto_submit_controller-84b5b7ef.js">
+<link rel="modulepreload" href="/assets/controllers/braintree_payment_controller-8e523809.js">
+<link rel="modulepreload" href="/assets/controllers/calls_toggle_controller-910c8c57.js">
+<link rel="modulepreload" href="/assets/controllers/care_circle_member_email_notify_controller-6017d960.js">
+<link rel="modulepreload" href="/assets/controllers/checkin_fields_controller-aab18ceb.js">
+<link rel="modulepreload" href="/assets/controllers/contact_form_controller-e2b717cd.js">
+<link rel="modulepreload" href="/assets/controllers/copy_contact_controller-fbab9fa9.js">
+<link rel="modulepreload" href="/assets/controllers/country_address_controller-9a94171c.js">
+<link rel="modulepreload" href="/assets/controllers/dashboard_polling_controller-0067ae98.js">
+<link rel="modulepreload" href="/assets/controllers/disclosure_controller-f9f772c9.js">
+<link rel="modulepreload" href="/assets/controllers/dropdown_controller-2cfa14c9.js">
+<link rel="modulepreload" href="/assets/controllers/early_checkin_countdown_controller-a027347d.js">
+<link rel="modulepreload" href="/assets/controllers/email_template_controller-824e1f09.js">
+<link rel="modulepreload" href="/assets/controllers/email_validation_controller-83e1eb21.js">
+<link rel="modulepreload" href="/assets/controllers/event_log_modal_controller-de64932f.js">
+<link rel="modulepreload" href="/assets/controllers/facility_dashboard_controller-c83a622e.js">
+<link rel="modulepreload" href="/assets/controllers/facility_settings_controller-d2070233.js">
+<link rel="modulepreload" href="/assets/controllers/flash_controller-bd47d5bc.js">
+<link rel="modulepreload" href="/assets/controllers/form_change_controller-9cef9f62.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-708796bd.js">
+<link rel="modulepreload" href="/assets/controllers/index-28809a0a.js">
+<link rel="modulepreload" href="/assets/controllers/job_args_toggle_controller-825ff0cc.js">
+<link rel="modulepreload" href="/assets/controllers/job_details_controller-34f819a5.js">
+<link rel="modulepreload" href="/assets/controllers/job_modal_controller-3a9fc020.js">
+<link rel="modulepreload" href="/assets/controllers/job_toggle_controller-fcdacbb5.js">
+<link rel="modulepreload" href="/assets/controllers/modal_controller-d71a7a23.js">
+<link rel="modulepreload" href="/assets/controllers/navbar_clock_controller-e7a0a4c8.js">
+<link rel="modulepreload" href="/assets/controllers/notification_controller-9a951b34.js">
+<link rel="modulepreload" href="/assets/controllers/old_schedule_form_controller-71547205.js">
+<link rel="modulepreload" href="/assets/controllers/pagination_controller-0472982a.js">
+<link rel="modulepreload" href="/assets/controllers/password_strength_controller-093695b8.js">
+<link rel="modulepreload" href="/assets/controllers/phone_format_controller-2fe348b5.js">
+<link rel="modulepreload" href="/assets/controllers/phone_input_controller-7983ec40.js">
+<link rel="modulepreload" href="/assets/controllers/phone_input_v2_controller-10e051e2.js">
+<link rel="modulepreload" href="/assets/controllers/pricing_calculator_controller-871e3ce6.js">
+<link rel="modulepreload" href="/assets/controllers/pricing_controller-84d4b7b5.js">
+<link rel="modulepreload" href="/assets/controllers/recurring_message_controller-8fdea455.js">
+<link rel="modulepreload" href="/assets/controllers/resident_form_controller-23653b4f.js">
+<link rel="modulepreload" href="/assets/controllers/residents_dashboard_controller-13b6efc7.js">
+<link rel="modulepreload" href="/assets/controllers/schedule_mode_controller-afc8ec83.js">
+<link rel="modulepreload" href="/assets/controllers/schedule_preview_controller-d020201e.js">
+<link rel="modulepreload" href="/assets/controllers/table_refresh_controller-e584909b.js">
+<link rel="modulepreload" href="/assets/controllers/tabs_controller-3c97190f.js">
+<link rel="modulepreload" href="/assets/controllers/terms_agreement_controller-b339af04.js">
+<link rel="modulepreload" href="/assets/controllers/time_validation_controller-6c29b5af.js">
+<link rel="modulepreload" href="/assets/controllers/toggle_controller-e5440818.js">
+<link rel="modulepreload" href="/assets/controllers/universal_checkin_controller-fe9f2464.js">
+<link rel="modulepreload" href="/assets/controllers/vacation_calendar_controller-b50ef453.js">
+<link rel="modulepreload" href="/assets/controllers/verification_status_controller-48fb3f62.js">
+<link rel="modulepreload" href="/assets/controllers/visibility_controller-26b1f92a.js">
+<link rel="modulepreload" href="/assets/controllers/zip-timezone-controller-870a1967.js">
+<script type="module">import "application"</script>
+  <!-- BEGIN app/views/layouts/_google_analytics.html.erb --><!-- Google Analytics - Respects Cookie Consent -->
+<script>
+  // Store GA ID for cookie consent controller
+  window.googleAnalyticsId = 'G-C2J67LGNNQ';
+  
+  // Check if analytics consent has been given
+  function checkAnalyticsConsent() {
+    const consentData = localStorage.getItem('cookie_consent');
+    if (consentData) {
+      try {
+        const consent = JSON.parse(consentData);
+        return consent.consents && consent.consents.analytics === true;
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+  }
+  
+  // Only load Google Analytics if consent has been given
+  if (checkAnalyticsConsent()) {
+    // Load Google Analytics
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-C2J67LGNNQ';
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C2J67LGNNQ', {
+      anonymize_ip: true, // GDPR compliance
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  }
+  
+  // Listen for consent changes
+  window.addEventListener('cookieConsentUpdated', function(event) {
+    if (event.detail.analytics && !window.gtag) {
+      // Consent given, load GA
+      location.reload(); // Simple reload to load GA
+    } else if (!event.detail.analytics && window.gtag) {
+      // Consent revoked, remove GA
+      location.reload(); // Simple reload to remove GA
+    }
+  });
+</script><!-- END app/views/layouts/_google_analytics.html.erb -->
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+</head>
+<body>
+  <!-- BEGIN app/views/shared/_cookie_consent.html.erb --><div data-controller="cookie-consent"
+     data-cookie-consent-google-analytics-id-value="G-XXXXXXXXXX"
+     class="fixed inset-0 z-[9999] pointer-events-none">
+  
+  <!-- Cookie Banner -->
+  <div data-cookie-consent-target="banner"
+       class="hidden fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 shadow-2xl transform translate-y-full opacity-0 transition-all duration-300 pointer-events-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+      <div class="lg:flex lg:items-center lg:justify-between">
+        <div class="flex-1 mb-4 lg:mb-0">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">
+            🍪 We value your privacy
+          </h3>
+          <p class="text-sm text-gray-600 mb-3 max-w-3xl">
+            We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
+            Some cookies are essential for the website to function, while others help us understand how you use our service.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <a href="/privacy" class="text-indigo-600 hover:text-indigo-800 underline" target="_blank">Privacy Policy</a>
+            <span class="text-gray-400">•</span>
+            <a href="/cookies" class="text-indigo-600 hover:text-indigo-800 underline" target="_blank">Cookie Policy</a>
+            <span class="text-gray-400">•</span>
+            <button data-action="click->cookie-consent#showCustomize" 
+                    class="text-indigo-600 hover:text-indigo-800 underline">
+              Manage Preferences
+            </button>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-3 lg:ml-6 lg:flex-shrink-0">
+          <button data-action="click->cookie-consent#acceptEssential"
+                  class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors">
+            Essential Only
+          </button>
+          <button data-action="click->cookie-consent#acceptAll"
+                  data-cookie-consent-target="acceptAll"
+                  class="px-6 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-md">
+            Accept All Cookies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Preferences Modal -->
+  <div data-cookie-consent-target="modal"
+       class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 items-center justify-center z-50 pointer-events-auto">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold text-gray-900">Cookie Preferences</h2>
+          <button data-action="click->cookie-consent#hideModal"
+                  class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="px-6 py-4">
+        <p class="text-sm text-gray-600 mb-6">
+          Choose which cookies you want to accept. Essential cookies are always enabled as they are required for the website to function properly.
+        </p>
+        
+        <!-- Cookie Categories -->
+        <div class="space-y-4">
+          <!-- Essential Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       checked 
+                       disabled
+                       data-cookie-consent-target="essentialCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-not-allowed opacity-75">
+              </div>
+              <div class="ml-3 flex-1">
+                <label class="font-medium text-gray-900">Essential Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Required for the website to function properly. These include security, authentication, and session management cookies.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: _session_id, csrf_token, remember_user_token
+                </p>
+              </div>
+              <span class="ml-3 px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                Always On
+              </span>
+            </div>
+          </div>
+          
+          <!-- Functional Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="functionalCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="functional" class="font-medium text-gray-900 cursor-pointer">Functional Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Remember your preferences and provide enhanced features like language selection and timezone settings.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: timezone, locale, display_preferences
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Analytics Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="analyticsCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="analytics" class="font-medium text-gray-900 cursor-pointer">Analytics Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Help us understand how visitors use our website, which pages are most popular, and how to improve our service.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: Google Analytics (_ga, _gid, _gat)
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Marketing Cookies -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input type="checkbox" 
+                       data-cookie-consent-target="marketingCheckbox"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              </div>
+              <div class="ml-3 flex-1">
+                <label for="marketing" class="font-medium text-gray-900 cursor-pointer">Marketing Cookies</label>
+                <p class="text-sm text-gray-500 mt-1">
+                  Used to show relevant advertisements and track marketing campaign effectiveness. Currently not in use.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                  Examples: Facebook Pixel, Google Ads
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Privacy Info -->
+        <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-800">
+                Your consent preferences are stored for 1 year and can be changed at any time. 
+                We respect your privacy and comply with GDPR, CCPA, and other privacy regulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-lg">
+        <div class="flex justify-between items-center">
+          <a href="/privacy" class="text-sm text-indigo-600 hover:text-indigo-800" target="_blank">
+            Privacy Policy
+          </a>
+          <div class="flex gap-3">
+            <button data-action="click->cookie-consent#hideModal"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 rounded-lg transition-colors">
+              Cancel
+            </button>
+            <button data-action="click->cookie-consent#saveCustomized"
+                    class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
+              Save Preferences
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Link (for footer) -->
+<script>
+  // Add cookie settings link to footer if it exists
+  document.addEventListener('DOMContentLoaded', function() {
+    const footer = document.querySelector('footer');
+    if (footer && !document.querySelector('.cookie-settings-link')) {
+      const settingsLink = document.createElement('button');
+      settingsLink.className = 'cookie-settings-link text-sm text-gray-600 hover:text-indigo-600 underline';
+      settingsLink.textContent = '🍪 Cookie Settings';
+      settingsLink.onclick = function(e) {
+        e.preventDefault();
+        const controller = document.querySelector('[data-controller="cookie-consent"]');
+        if (controller && controller._stimulus_controller) {
+          controller._stimulus_controller.openPreferences(e);
+        }
+      };
+      
+      // Try to add to footer links area
+      const footerLinks = footer.querySelector('.footer-links, .links, nav');
+      if (footerLinks) {
+        footerLinks.appendChild(settingsLink);
+      }
+    }
+  });
+</script><!-- END app/views/shared/_cookie_consent.html.erb -->
+  <!-- BEGIN app/views/pages/faq.html.erb -->
+
+<style>
+  .faq-question {
+    transition: all 0.3s ease;
+  }
+  .faq-question:hover {
+    background-color: #f3f4f6;
+  }
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  .faq-icon {
+    transition: transform 0.3s ease;
+  }
+</style>
+
+<div class="min-h-screen bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center space-x-2">
+        <a href="/" class="text-2xl font-bold text-indigo-700">ResidentCheckin.co</a>
+        <span class="text-sm text-gray-600 hidden md:inline">by</span>
+        <a href="https://www.iamfine.com" target="_blank" rel="noopener noreferrer">
+          <img src="/iamfine-logo-v2.png" alt="IamFine Logo" class="h-6 w-auto hover:opacity-80 transition-opacity">
+        </a>
+      </div>
+      <div class="space-x-6 hidden md:flex items-center">
+        <a href="/" class="text-gray-700 hover:text-indigo-700">Home</a>
+        <a href="/#how-it-works" class="text-gray-700 hover:text-indigo-700">How It Works</a>
+        <a href="/#features" class="text-gray-700 hover:text-indigo-700">Features</a>
+        <a href="/#pricing" class="text-gray-700 hover:text-indigo-700">Pricing</a>
+        <a href="/faq" class="text-indigo-700 font-semibold">FAQ</a>
+        <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
+        <a href="https://dev.residentcheckin.co/users/sign_in" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Facility Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FAQ Header -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
+      <p class="text-xl text-indigo-100">Everything you need to know about ResidentCheckin.co</p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-16" data-controller="faq">
+    <div class="container mx-auto px-6 max-w-4xl">
+      
+      <!-- Quick Actions -->
+      <div class="flex justify-center gap-4 mb-8">
+        <button data-action="click->faq#expandAll" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+          Expand All
+        </button>
+        <span class="text-gray-400">|</span>
+        <button data-action="click->faq#collapseAll" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+          Collapse All
+        </button>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="space-y-4">
+        
+        <!-- Getting Started Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">Getting Started</h2>
+          
+          <!-- Question 1 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-1" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">How quickly can we get set up?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-1" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Most facilities are up and running within 24-48 hours. Our onboarding process includes:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>Phone number configuration and testing</li>
+                <li>Resident enrollment (can be done in batches)</li>
+                <li>Staff training on the dashboard</li>
+                <li>Security team notification setup</li>
+                <li>Test calls to ensure everything works</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-2" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What information do we need to provide?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-2" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">To get started, we need:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>Facility contact information and preferred check-in time</li>
+                <li>Resident list with names and phone numbers</li>
+                <li>Security team contact information for alerts</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-3" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Is there a minimum contract length?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-3" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">No long-term contracts required. We have a 90 day cancellation clause. You can cancel at any time with 90 days notice.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">How It Works</h2>
+          
+          <!-- Question 4 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-4" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What types of phones work with the system?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-4" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Our system works with ANY phone type - landlines, basic cell phones, flip phones, smartphones. No smartphone or internet required. Residents just need to be able to answer calls and press "1" on their keypad.</p>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-5" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What happens if a resident doesn't answer the automated call?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-5" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">We call at the check-in time, then retry every 15 minutes for an hour. If the resident still hasn't responded after an hour, the security team is automatically notified to check on them.</p>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-6" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Can residents check in early?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-6" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Yes! Residents can check in early by:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>Calling our toll-free number</li>
+                <li>Sending a text message</li>
+                <li>Using our custom smartphone Big Button App</li>
+                <li>Letting the security team know they're okay (staff can check them in manually)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-7" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What if a resident forgets to check in but is fine?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-7" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Staff can manually check in residents directly from the dashboard when they see them in person. This immediately stops any automated calls and updates the system.</p>
+            </div>
+          </div>
+
+          <!-- Question 8 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-8" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">How do vacations and time away work?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-8" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Our vacation management system makes it easy:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>Schedule vacations, family visits, or medical stays in advance</li>
+                <li>Check-in calls automatically pause during vacation periods</li>
+                <li>Calls resume automatically on the return date</li>
+                <li>Dashboard shows who's on vacation and when they return</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical & Security Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">Technical & Security</h2>
+          
+          <!-- Question 9 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-9" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What happens if your system goes down?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-9" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">We have multiple safeguards:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>99.9% uptime guarantee with redundant systems</li>
+                <li>Automatic failover to backup servers</li>
+                <li>24/7 monitoring and immediate alert response</li>
+                <li>Emergency contact procedures for extended outages</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Question 10 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-10" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Do you integrate with our existing systems?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-10" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">We can provide daily reports via email or secure file transfer. For deeper integrations with property management systems, contact us to discuss custom solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing & Pricing Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">Billing & Pricing</h2>
+          
+          <!-- Question 11 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-11" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Are there any additional fees?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-11" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">There is a one-time setup fee of $500. No cancellation fees, no per-call charges. The monthly fee includes everything: unlimited automated calls, text messaging, dashboard access, and support.</p>
+            </div>
+          </div>
+
+          <!-- Question 12 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-12" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What payment methods do you accept?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-12" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">We accept all major credit cards and ACH bank transfers. Billing is monthly in advance with automatic payment processing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">Support & Training</h2>
+          
+          <!-- Question 13 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-13" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">What kind of support do you provide?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-13" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Comprehensive support including:</p>
+              <ul class="list-disc list-inside text-gray-600 mt-2 ml-4">
+                <li>Email and phone support during business hours</li>
+                <li>Emergency support for system issues 24/7</li>
+                <li>Initial staff training and onboarding</li>
+                <li>Ongoing training for new staff members</li>
+                <li>Regular check-ins to ensure optimal usage</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Question 14 -->
+          <div class="border-b border-gray-200">
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-14" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">How much training does our staff need?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-14" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Minimal training required. Most staff learn the dashboard in 15-20 minutes. We provide live training sessions, video tutorials, and written guides. The system is designed to be intuitive for staff of all technical skill levels.</p>
+            </div>
+          </div>
+
+          <!-- Question 15 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-15" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Can you help us explain the system to residents?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-15" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Yes! We provide resident information sheets, talking points for staff, and can participate in resident meetings to explain the system and answer questions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance Section -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <h2 class="bg-indigo-50 px-6 py-4 text-lg font-semibold text-gray-900">Compliance & Regulations</h2>
+          
+          <!-- Question 16 -->
+          <div>
+            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:bg-gray-50" 
+                    data-answer-id="answer-16" 
+                    data-action="click->faq#toggle"
+                    aria-expanded="false">
+              <span class="text-gray-900 font-medium">Does this help with state regulations and funding compliance?</span>
+              <svg class="w-5 h-5 text-gray-500 faq-icon" data-faq-target="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer-16" class="hidden px-6 pb-4" data-faq-target="answer">
+              <p class="text-gray-600">Yes. Many housing authorities and facilities use our system to demonstrate systematic wellness monitoring for compliance reporting. We provide detailed logs and reports that document your wellness check procedures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Still Have Questions CTA -->
+      <div class="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Still Have Questions?</h2>
+        <p class="text-indigo-100 mb-6">We're here to help you determine if ResidentCheckin is right for your facility.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/cdn-cgi/l/email-protection#f484958198b49d9599929d9a91da979b99" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            Email Us
+          </a>
+          <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+            Start Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGIN app/views/shared/_footer.html.erb --><!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-semibold mb-4">ResidentCheckin.co</h3>
+        <p class="text-sm mb-4">Automated wellness checks for independent living communities.</p>
+        <p class="text-xs text-gray-300">Built on IamFine.com's proven platform with 4+ million check-ins processed</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#features" class="hover:text-white">Features</a></li>
+          <li><a href="#notifications" class="hover:text-white">Notification Service</a></li>
+          <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+          <li><a href="https://dev.residentcheckin.co/facility/onboarding" class="hover:text-white">Start Trial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Support</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+          <li><a href="#" class="hover:text-white">About IamFine</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.01</p>
+    </div>
+  </div>
+</footer><!-- END app/views/shared/_footer.html.erb -->
+</div><!-- END app/views/pages/faq.html.erb -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html> <!-- END app/views/layouts/landing.html.erb -->
