@@ -1,0 +1,58 @@
+# robots.txt for ResidentCheckin.co
+# Generated: 2025-01-09
+
+# Default - Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /superadmin/
+Disallow: /facility_dashboard/
+Disallow: /facility_onboarding/
+Disallow: /user/
+Disallow: /api/
+Disallow: /cable
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*page=
+
+# Allow specific pages
+Allow: /
+Allow: /faq
+Allow: /privacy
+Allow: /cookies
+Allow: /terms
+Allow: /pricing
+Allow: /login
+Allow: /register
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /superadmin/
+Crawl-delay: 1
+
+# Bingbot specific  
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /superadmin/
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://residentcheckin.co/sitemap.xml

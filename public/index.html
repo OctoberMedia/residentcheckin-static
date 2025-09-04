@@ -50,6 +50,16 @@
     </style>
 </head>
 <body>
+
+
+
+
+
+  
+  
+  
+
+
 <style>
   @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
@@ -756,7 +766,7 @@
           <div class="text-center">
             <div class="bg-indigo-100 p-3 rounded-lg mx-auto w-fit mb-4">
               <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 515.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 919.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
               </svg>
             </div>
             <h4 class="font-semibold text-lg mb-2">Maintains Independence</h4>
@@ -1249,7 +1259,7 @@
       </div>
     </div>
     <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.05</p>
+      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.06</p>
     </div>
   </div>
 </footer>
@@ -1325,6 +1335,59 @@ document.addEventListener('DOMContentLoaded', function() {
   gtag('js', new Date());
 
   gtag('config', 'G-C2J67LGNNQ');
+</script>
+
+
+<!-- Contact Form Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('[data-contact-form]');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
+                // Success - show thank you message
+                form.innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+                        <p class="text-gray-600">${result.message || "We'll be in touch soon."}</p>
+                    </div>
+                `;
+            } else {
+                // Error - show message
+                alert(result.message || 'There was an error submitting the form. Please try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error submitting the form. Please try again later.');
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
+    });
+});
 </script>
 
 </body>
