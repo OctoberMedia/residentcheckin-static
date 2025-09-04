@@ -102,6 +102,9 @@ faqs = [
   }
 ]
 
+# Change to the cloudflare-pages directory to ensure paths work correctly
+Dir.chdir(File.dirname(__FILE__))
+
 # Generate the HTML
 template = ERB.new(File.read('faq_template.erb'))
 html = template.result(binding)

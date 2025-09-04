@@ -85,70 +85,45 @@
 </style>
 
 <div class="min-h-screen bg-gray-50">
-  <!-- Navigation -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
-      <div class="flex items-center space-x-2">
-        <div class="text-xl sm:text-2xl font-bold text-indigo-700">ResidentCheckin.co</div>
-        <span class="text-sm text-gray-600 hidden md:inline">by</span>
-        <a href="https://www.iamfine.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block">
-          <img src="/iamfine-logo-v2.png" alt="IamFine Logo" class="h-6 w-auto hover:opacity-80 transition-opacity">
-        </a>
-      </div>
-      
-      <!-- Desktop Navigation -->
-      <div class="space-x-3 lg:space-x-6 hidden md:flex items-center">
-        <a href="#features" class="text-gray-700 hover:text-indigo-700">Features</a>
-        <a href="#pricing" class="text-gray-700 hover:text-indigo-700">Pricing</a>
-        <a href="/faq" class="text-gray-700 hover:text-indigo-700">FAQ</a>
-        <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-600 text-white px-3 lg:px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium text-sm lg:text-base">Start 2-Week Trial</a>
-        <a href="https://dev.residentcheckin.co/users/sign_in" class="bg-indigo-600 text-white px-3 lg:px-6 py-2 rounded-lg hover:bg-indigo-700 transition text-sm lg:text-base">Facility Login</a>
-      </div>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+  <!-- Navigation - Home Page -->
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
+    <div class="flex items-center space-x-2">
+      <div class="text-xl sm:text-2xl font-bold text-indigo-700">ResidentCheckin.co</div>
+      <span class="text-sm text-gray-600 hidden md:inline">by</span>
+      <a href="https://www.iamfine.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block">
+        <img src="/iamfine-logo-v2.png" alt="IamFine Logo" class="h-6 w-auto hover:opacity-80 transition-opacity">
+      </a>
     </div>
     
-    <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#features" class="block text-gray-700 hover:text-indigo-700 py-2">Features</a>
-        <a href="#pricing" class="block text-gray-700 hover:text-indigo-700 py-2">Pricing</a>
-        <a href="/faq" class="block text-gray-700 hover:text-indigo-700 py-2">FAQ</a>
-        <div class="pt-3 space-y-3 border-t border-gray-200">
-          <a href="https://dev.residentcheckin.co/facility/onboarding" class="block w-full text-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
-          <a href="https://dev.residentcheckin.co/users/sign_in" class="block w-full text-center bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">Facility Login</a>
-        </div>
-      </div>
+    <!-- Desktop Navigation -->
+    <div class="space-x-3 lg:space-x-6 hidden md:flex items-center">
+      <a href="#features" class="text-gray-700 hover:text-indigo-700">Features</a>
+      <a href="#pricing" class="text-gray-700 hover:text-indigo-700">Pricing</a>
+      <a href="/faq" class="text-gray-700 hover:text-indigo-700">FAQ</a>
+      <a href="https://dev.residentcheckin.co/facility/onboarding" class="bg-green-600 text-white px-3 lg:px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium text-sm lg:text-base">Start 2-Week Trial</a>
+      <a href="https://dev.residentcheckin.co/users/sign_in" class="bg-indigo-600 text-white px-3 lg:px-6 py-2 rounded-lg hover:bg-indigo-700 transition text-sm lg:text-base">Facility Login</a>
     </div>
-  </nav>
+    
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
   
-  <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      const menu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      
-      menu.classList.toggle('hidden');
-      menuIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.add('hidden');
-        document.getElementById('menu-icon').classList.remove('hidden');
-        document.getElementById('close-icon').classList.add('hidden');
-      });
-    });
-  </script>
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="#features" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-indigo-700 rounded-md">Features</a>
+      <a href="#pricing" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-indigo-700 rounded-md">Pricing</a>
+      <a href="/faq" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-indigo-700 rounded-md">FAQ</a>
+      <a href="https://dev.residentcheckin.co/facility/onboarding" class="block w-full text-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-medium">Start 2-Week Trial</a>
+      <a href="https://dev.residentcheckin.co/users/sign_in" class="block w-full text-center bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition font-medium">Facility Login</a>
+    </div>
+  </div>
+</nav>
 
   <!-- Hero Section -->
   <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-12 sm:py-16 lg:py-24 overflow-hidden">
@@ -1345,7 +1320,7 @@
       </div>
     </div>
     <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.16</p>
+      <p>&copy; 2025 ResidentCheckin.co - All rights reserved. Part of the IamFine family of products. v1.21</p>
     </div>
   </div>
 </footer>
@@ -1495,59 +1470,6 @@ function toggleOtherField(select) {
         otherField.style.display = 'none';
     }
 }
-</script>
-
-
-<!-- Contact Form Handler -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('[data-contact-form]');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Disable submit button
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (response.ok && result.success) {
-                // Success - show thank you message
-                form.innerHTML = `
-                    <div class="text-center py-8">
-                        <div class="mb-4">
-                            <svg class="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-                        <p class="text-gray-600">${result.message || "We'll be in touch soon."}</p>
-                    </div>
-                `;
-            } else {
-                // Error - show message
-                alert(result.message || 'There was an error submitting the form. Please try again.');
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('There was an error submitting the form. Please try again later.');
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-        }
-    });
-});
 </script>
 
 </body>

@@ -36,9 +36,27 @@ def extract_home_page():
     with open('../app/views/pages/home.html.erb', 'r') as f:
         content = f.read()
     
+    # Read the home page navigation
+    with open('shared_nav_home.html', 'r') as f:
+        nav_content = f.read()
+    
     # Read the footer partial
     with open('../app/views/shared/_footer.html.erb', 'r') as f:
         footer_content = f.read()
+    
+    # Replace the Rails navigation with shared navigation
+    # Find and replace the entire nav section
+    nav_start = content.find('<!-- Navigation -->')
+    nav_end = content.find('</nav>', nav_start) + len('</nav>')
+    
+    if nav_start != -1 and nav_end != -1:
+        # Also remove the mobile menu script that's specific to the Rails version
+        script_start = content.find('<script>', nav_end)
+        script_end = content.find('</script>', script_start) + len('</script>')
+        if script_start - nav_end < 100:  # Script is close to nav, likely the mobile menu script
+            content = content[:nav_start] + nav_content + content[script_end:]
+        else:
+            content = content[:nav_start] + nav_content + content[nav_end:]
     
     # Replace the Rails form with a static contact form
     form_start = content.find('<%= form_with')
