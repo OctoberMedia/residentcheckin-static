@@ -47,6 +47,10 @@ footer_content = footer_erb.result(context.get_binding)
 # Replace the render call with actual footer content
 about_content = about_content.gsub('<%= render \'shared/footer_faq\' %>', footer_content)
 
+# Fix footer links for static site
+about_content = about_content.gsub('href="/faq"', 'href="/faq.html"')
+about_content = about_content.gsub('href="/about"', 'href="/about.html"')
+
 # Create the full HTML document
 html_output = <<-HTML
 <!DOCTYPE html>
